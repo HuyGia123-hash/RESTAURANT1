@@ -1,0 +1,52 @@
+﻿@model List<RestaurantManagement.Models.MenuItem>
+@{
+    var categories = new Dictionary<string, string>
+{
+        { "Món mặn", "🥩 Món Mặn" },
+        { "Món nhẹ", "🍞 Món Nhẹ" },
+        { "Món ăn vặt", "🍟 Món Ăn Vặt" },
+        { "Món chay", "🥦 Món Chay" },
+        { "Nước uống & Bia", "🍹 Nước Uống & Bia" }
+    };
+    var groupedMenu = Model.GroupBy(m => m.Category);
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>Thể loại</th>
+            <th>Tên món</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Chọn</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Category</td>
+                <td>@item.Name</td>
+                <td>@item.Price.ToString("N0") đ</td>
+                <td>@item.Description</td>
+                <td>
+                    <a href="@Url.Action("AddToCart", "Cart", new { id = item.Id,Category =item.Category, name = item.Name, price = item.Price })" class="btn btn-primary">
+                        Thêm vào giỏ
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<a href="@Url.Action("Index", "Cart")" class="btn btn-success">
+    🛒 Xem giỏ hàng (@(Session["Cart"] != null ? ((List<RestaurantManagement.Models.CartItem>)Session["Cart"]).Sum(x => x.Quantity) : 0))
+</a>
+
+0

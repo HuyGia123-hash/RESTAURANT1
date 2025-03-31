@@ -1,0 +1,48 @@
+﻿@model Reservation
+
+<div class="container mt-4">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>Đặt Bàn</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "Reservation", FormMethod.Post))
+            {
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><strong>Tên khách hàng</strong></label>
+                            @Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control", placeholder = "Nhập tên khách hàng", required = "required" })
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label><strong>Số điện thoại</strong></label>
+                            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Nhập số điện thoại", required = "required" })
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label><strong>Ngày đặt</strong></label>
+                            @Html.TextBoxFor(m => m.ReservationDate, new { @class = "form-control", type = "datetime-local", required = "required" })
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label><strong>Ngày nhận bàn</strong></label>
+                            @Html.TextBoxFor(m => m.ArrivalDate, new { @class = "form-control", type = "datetime-local", required = "required" })
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label><strong>Số lượng khách</strong></label>
+                            @Html.TextBoxFor(m => m.NumberOfGuests, new { @class = "form-control", type = "number", placeholder = "Nhập số lượng khách", required = "required", min = "1" })
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-success w-100">Đặt Bàn</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

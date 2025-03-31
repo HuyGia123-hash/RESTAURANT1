@@ -1,0 +1,33 @@
+﻿@model RestaurantManagement.Models.MenuItem
+
+<h2>Thêm món ăn</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label for="Name">Tên món</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="Price">Giá</label>
+        @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", step = "0.01" })
+    </div>
+
+    <div class="form-group">
+        <label for="Description">Mô tả</label>
+        @Html.TextAreaFor(m => m.Description, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label for="Category">Danh mục</label>
+        @Html.TextBoxFor(m => m.Category, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Trạng thái</label>
+        @Html.CheckBoxFor(m => m.IsAvailable) Có sẵn
+    </div>
+
+    <button type="submit" class="btn btn-success">Thêm</button>
+}

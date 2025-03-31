@@ -1,0 +1,22 @@
+﻿@model List<RestaurantManagement.Models.CartItem>
+
+<h2>Danh sách món khách đã đặt</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên món</th>
+            <th>Số lượng</th>
+            <th>Tổng cộng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.TotalPrice.ToString("N0") đ</td>
+            </tr>
+        }
+    </tbody>
+</table>

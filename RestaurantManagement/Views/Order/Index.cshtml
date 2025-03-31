@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Đặt Hàng Thành Công";
+}
+
+<div style="text-align: center; margin: 20px; font-family: Arial, sans-serif; color: #333;">
+    <h1 style="color: #28a745; font-size: 2.5em;">🎉 Đặt hàng thành công!</h1>
+    <p style="font-size: 1.2em;">Món ăn của bạn đang được chế biến. Vui lòng chờ trong giây lát để chúng tôi phục vụ bạn tốt nhất! 🍽️</p>
+
+    <img src="https://via.placeholder.com/400x200?text=Chế+biến+món+ăn+%F0%9F%8D%B4" alt="Chế biến món ăn"
+         style="margin: 20px auto; border-radius: 10px; display: block;" />
+
+    <div style="margin-top: 30px;">
+        <a href="@Url.Action("Index", "Menu")"
+           class="btn btn-secondary"
+           style="padding: 10px 20px; margin: 0 10px; border-radius: 5px; background-color: #6c757d; color: white; text-decoration: none;">
+            ⬅ Quay lại Menu
+        </a>
+
+       
+    </div>
+</div>
+
+<!-- Phong cách CSS bổ sung -->
+<style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .btn:hover {
+        opacity: 0.8;
+        transition: 0.3s;
+    }
+</style>
